@@ -1,5 +1,5 @@
 #include "my_car.h"
-#include <math.h>
+#include <cmath>
 
 bool MyCar::isInMyLaneAndTooClose(Car other) {
   if (lane != other.lane) {
@@ -20,5 +20,5 @@ bool MyCar::isSafeToChangeTheLane(Car carInFront, Car carInTargetLane) {
   return isSafeToChangeIntoCarsLane(carInTargetLane) 
   // If the car in target lane is near the car in front (their S is close), it only makes sense to change
   // the lane if its velocity is larger.
-    && (abs(carInTargetLane.s_projected - carInFront.s_projected) > 5 || carInTargetLane.speed > carInFront.speed);
+    && (std::abs(carInTargetLane.s_projected - carInFront.s_projected) > 5 || carInTargetLane.speed > carInFront.speed);
 }
